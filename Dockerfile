@@ -18,6 +18,7 @@ USER node
 RUN yo hubot --owner="brentsflix" --name="Hubot" --description="Brentsflix Hubot" --adapter=slack --defaults --allow-root
 
 RUN npm install hubot-slack
+RUN npm install hubot-youtube
 
 ADD external-scripts.json /opt/hubot/external-scripts.json
 
