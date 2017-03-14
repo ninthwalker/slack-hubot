@@ -6,12 +6,15 @@ RUN apk --no-cache add \
 nodejs \
 bash
 
-RUN mkdir -p /opt/hubot
+RUN mkdir -p /opt/hubot \
+mkdir -p /.config \
+chmod -R g+rwx /root/.config
+
 WORKDIR /opt/hubot
 
 RUN npm install -g hubot coffee-script yo generator-hubot
 
-#RUN useradd -ms /bin/bash node
+RUN add user -S node \
 #RUN chown -R node /opt/hubot
 #USER node
 
