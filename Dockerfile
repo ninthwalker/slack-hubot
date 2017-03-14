@@ -3,7 +3,8 @@ FROM alpine:3.5
 MAINTAINER ninthwalker <ninthwalker@gmail.com>
 
 RUN apk --no-cache add \
-nodejs
+nodejs \
+bash
 
 RUN mkdir /opt/hubot
 WORKDIR /opt/hubot
