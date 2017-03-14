@@ -1,4 +1,9 @@
-FROM alpine:
+FROM alpine:3.5
+#FROM google/nodejs
+MAINTAINER ninthwalker <ninthwalker@gmail.com>
+
+RUN apk --no-cache add \
+nodejs
 
 RUN mkdir /opt/hubot
 WORKDIR /opt/hubot
@@ -14,8 +19,5 @@ RUN yo hubot --owner="brentsflix" --name="Hubot" --description="Brentsflix Hubot
 RUN npm install hubot-slack
 
 ADD external-scripts.json /opt/hubot/external-scripts.json
-
-# override to set proper hubot slack integration token (see slack integrations)
-ENV HUBOT_SLACK_TOKEN
 
 CMD ["./bin/hubot", "--adapter", "slack"]
