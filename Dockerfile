@@ -6,14 +6,14 @@ RUN apk --no-cache add \
 nodejs \
 bash
 
-RUN mkdir /opt/hubot
+RUN mkdir -p /opt/hubot
 WORKDIR /opt/hubot
 
 RUN npm install -g hubot coffee-script yo generator-hubot
 
-RUN useradd -ms /bin/bash node
-RUN chown -R node /opt/hubot
-USER node
+#RUN useradd -ms /bin/bash node
+#RUN chown -R node /opt/hubot
+#USER node
 
 RUN yo hubot --owner="brentsflix" --name="Hubot" --description="Brentsflix Hubot" --adapter=slack --defaults --allow-root
 
